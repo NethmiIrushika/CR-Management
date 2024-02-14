@@ -80,17 +80,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <main className="h-screen flex gap-8">
-        <Dashboard
-        crs={crState.crs}/>
+      
         <Routes>
           <Route exact path="/" element={<Home onStartLogin={handleLoginRedirect} />} />
           <Route path="/login" element={<LogIn onLogin={handleLogin} onRegister={handleRegisterButton} />} />
-          <Route path="/register" element={<Register onRegister={handleRegister} />} /> {/* Route to the Register component */}
+          <Route path="/register" element={<Register onRegister={handleRegister} onStartLogin={handleLoginRedirect}/>} /> {/* Route to the Register component */}
           {loginState.selectedLoginId && <Navigate to="/crcreate" />} {/* Redirect to the Create route if login is successful */}
           <Route path="/crcreate" element={<CrCreate />} /> {/* Route to the Create component */}
         </Routes>
-      </main>
+      
     </BrowserRouter>
   );
 }
