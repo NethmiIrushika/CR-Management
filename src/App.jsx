@@ -32,7 +32,7 @@ function App() {
     setLoginState(prevState => {
       const loginid = Math.random();
       const sucsessLogin =()=>{
-        window.location.href = "/crcreate"
+        window.location.href = "/dashboard"
       };
       const updatedLogin = {
         ...loginData,
@@ -87,6 +87,7 @@ function App() {
           <Route path="/register" element={<Register onRegister={handleRegister} onStartLogin={handleLoginRedirect}/>} /> {/* Route to the Register component */}
           {loginState.selectedLoginId && <Navigate to="/crcreate" />} {/* Redirect to the Create route if login is successful */}
           <Route path="/crcreate" element={<CrCreate />} /> {/* Route to the Create component */}
+          <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       
     </BrowserRouter>
